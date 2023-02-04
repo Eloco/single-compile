@@ -21,8 +21,7 @@ jobs:
 
     - name: CSC
       run: |
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\15.0\Bin\Roslyn"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn"
         # csc "C#\zone-user-login-msg.cs"
         # dir "C#"
 
