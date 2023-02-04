@@ -1,10 +1,10 @@
-steps:
-name: ASP.NET CI
-on: [push]
+name: sln comile
+
+on: workflow_dispatch
+
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@master
 
