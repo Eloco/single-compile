@@ -8,6 +8,17 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    # 安装 .NET Core
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.202
+
+    # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
+    - name: Add msbuild to PATH
+      id: setup_msbuild_path
+      uses: microsoft/setup-msbuild@v1.1
+
     - name: CSC
       run: |
         csc "C#\zone-user-login-msg.cs"
