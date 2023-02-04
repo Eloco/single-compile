@@ -8,15 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: Setup csc.exe
-      uses: yoavain/Setup-CSC@v5
-
     - name: CSC
-      working-directory: src
-      run: csc "C#\zone-user-login-msg.cs"
-
-    - name: dir
       run: |
+        csc "C#\zone-user-login-msg.cs"
         dir "C#"
 
     - uses: actions/upload-artifact@v3
