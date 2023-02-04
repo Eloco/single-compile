@@ -14,16 +14,22 @@ jobs:
       with:
         dotnet-version: 3.1.202
 
-    # # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
-    # - name: Add msbuild to PATH
-    #   id: setup_msbuild_path
-    #   uses: microsoft/setup-msbuild@v1.1
+    - name: add csc.exe path
+      shell: pwsh
+      run: |
+        Add-Content $env:GITHUB_PATH "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn"
+
 
     - name: CSC
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn"
-        # csc "C#\zone-user-login-msg.cs"
-        # dir "C#"
+        csc.exe "C#\zone-user-login-msg.cs"
+        dir "C#"
+
+    # # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
+    # - name: Add msbuild to PATH
+    #   id: setup_msbuild_path
+    #   uses: microsoft/setup-msbuild@v1.1
 
     # - uses: actions/upload-artifact@v3 with:
     #     name: csc-compile
