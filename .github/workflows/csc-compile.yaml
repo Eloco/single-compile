@@ -24,13 +24,14 @@ jobs:
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\Roslyn"
         csc.exe "C#\zone-user-login-msg.cs"
-        dir "C#"
+        dir
+
+    - uses: actions/upload-artifact@v3 with:
+        name: csc-compile
+        path: ${{ github.workspace }}\zone-user-login-msg.exe # or path/to/artifact
+
 
     # # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
     # - name: Add msbuild to PATH
     #   id: setup_msbuild_path
     #   uses: microsoft/setup-msbuild@v1.1
-
-    # - uses: actions/upload-artifact@v3 with:
-    #     name: csc-compile
-    #     path: ${{ github.workspace }}\zone-user-login-msg.exe # or path/to/artifact
