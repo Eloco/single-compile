@@ -1,4 +1,4 @@
-name: sln comile
+name: csc comile
 
 on: workflow_dispatch
 
