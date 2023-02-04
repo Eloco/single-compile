@@ -26,7 +26,8 @@ jobs:
         csc.exe "C#\zone-user-login-msg.cs"
         dir
 
-    - uses: actions/upload-artifact@v3 with:
+    - uses: actions/upload-artifact@v3
+      with:
         name: csc-compile
         path: ${{ github.workspace }}\zone-user-login-msg.exe # or path/to/artifact
 
